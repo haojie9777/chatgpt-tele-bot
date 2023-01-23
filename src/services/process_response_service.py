@@ -14,6 +14,8 @@ def process_response_from_openai(response):
     if len(response) == last_index + 1: # response already ends on a terminal punctuation
         return response
     else:
+        if response[last_index-1].isdigit(): # handle edge case of fullstop belonging to a list
+            return response
         edited = response[0:last_index+1]
         return edited
         
