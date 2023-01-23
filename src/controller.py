@@ -1,59 +1,52 @@
 import asyncio
 import coloredlogs, logging
-import completion_service
+import services.completion_service as completion_service
+import services.process_response_service as process_response_service
 import config
 import prompts
-import utils
+import utils.utils as utils
 from telebot.async_telebot import AsyncTeleBot
-from telebot.asyncio_handler_backends import State
 
+# load telegram bot api key
+bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None)
 
+# init logger
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='INFO')
 
 def start_bot_server():
-    # load telegram bot api key
-    bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None)
-
-    # init logger
-    logger = logging.getLogger(__name__)
-    coloredlogs.install(level='INFO')
-    
     
     # start command
     @bot.message_handler(commands= ['start', 'help'])
+    @bot.message_handler(content_types=['text'], func = lambda message: utils.user_states[message.from_user.id] ==\
+        utils.UserState.MENU.value)
     async def start(message):
         logger.info("start command received")
         await bot.reply_to(message, prompts.prompts["start"], reply_markup = utils.generate_buttons_response())
     
+    # handle callback from inline keyboard
     @bot.callback_query_handler(func=lambda call: True)
     async def callback_query(call):
-        user_option = call.data
-        if user_option == "completion":
-            
-     
-            
-        
+        logger.info("callback from inline keyboard received")
+        if call.data == "completion":
+            utils.user_states[call.from_user.id] = utils.UserState.TO_ENTER_PROMPT.value
+            await bot.send_message(call.from_user.id, prompts.prompts["complete"] )
+        else:
+            logger.warn("unknown inline keyboard command received")
 
-        
-    
-        
-    # init completion step
-    @bot.message_handler(commands="complete")
-    async def init_completion(message):
-        logger.info("init completion command received")
-        await bot.reply_to(message, prompts.prompts["complete"] )
-        await bot.set_state(message.uid, utils.UserStates.TO_ENTER_PROMPT)
-
-    
-    # get completion command
-    @bot.message_handler(state=utils.UserStates.TO_ENTER_PROMPT)
+    # perform text completion request
+    @bot.message_handler(content_types=['text'], func = lambda message: utils.user_states[message.from_user.id] ==\
+        utils.UserState.TO_ENTER_PROMPT.value)
     async def completion(message):
-        text = message.text
-        logger.info(f"text completion received: {text}")
+        logger.info(f"text completion request received: {message.text}")
         # restore user state
-        await bot.set_state(message.uid, utils.UserStates.MENU)
-        response = completion_service.getCompletion(text)
-        
-        logger.info(response)
+        utils.user_states[message.from_user.id] = utils.UserState.MENU.value
+        response = completion_service.get_completion(message.text)
+    
+        logger.info(f"original response text: {response}")
+        # trimmed response if needed
+        response = process_response_service.process_response_from_openai(response)
+        logger.info(f"trimmed response text: {response}")
         await bot.reply_to(message, response)
     
     asyncio.run(bot.infinity_polling())
