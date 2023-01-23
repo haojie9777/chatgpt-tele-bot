@@ -8,5 +8,3 @@ config_dict = {
     "TELEGRAM_API_KEY" : os.getenv("TELEGRAM_API_KEY")
 }
 
-
-    

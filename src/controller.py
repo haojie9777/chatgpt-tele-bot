@@ -41,15 +41,17 @@ def start_bot_server():
         logger.info(f"text completion request received: {message.text}")
         # restore user state
         utils.user_states[message.from_user.id] = utils.UserState.MENU.value
-        response = completion_service.get_completion(message.text)
-    
-        logger.info(f"original response text: {response}")
-        # trimmed response if needed
-        response = process_response_service.process_response_from_openai(response)
-        logger.info(f"trimmed response text: {response}")
-        await bot.reply_to(message, response)
-    
+        try:
+            response = completion_service.get_completion(message.text)
+            logger.info(f"original response text: {response}")
+            # trimmed response if needed
+            response = process_response_service.process_response_from_openai(response)
+            logger.info(f"trimmed response text: {response}")
+            await bot.reply_to(message, response)
+        except:
+            await bot.reply_to(message, prompts.prompts["retry"])
+        
     asyncio.run(bot.infinity_polling())
 
 if __name__ == "__main__":
-    start_bot_server() 
+    start_bot_server()

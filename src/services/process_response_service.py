@@ -15,8 +15,9 @@ def process_response_from_openai(response):
         return response
     else:
         if response[last_index-1].isdigit(): # handle edge case of fullstop belonging to a list
-            return response
-        edited = response[0:last_index+1]
+            edited = response[0:last_index-1]
+        else:
+            edited = response[0:last_index+1]
         return edited
         
     
