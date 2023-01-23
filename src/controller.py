@@ -8,7 +8,7 @@ import utils.utils as utils
 from telebot.async_telebot import AsyncTeleBot
 
 # load telegram bot api key
-bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None)
+bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None, colorful_logs= True)
 
 # init logger
 logger = logging.getLogger(__name__)
