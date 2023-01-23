@@ -20,6 +20,7 @@ a telegram bot that allows you to access chatgpt directly without going through 
 1. Add more configuration
 2. General enhancements (I'm new in using telegram bot api)
 3. Support chatgpt-3 and other OpenAI apis 
+4. Rate limiter, user session handling and caching
 
 # Special Note
 There must be thousands of chatgpt related apis out there created by other users, ever since chatgpt was released.
