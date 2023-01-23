@@ -1,4 +1,4 @@
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, MenuButtonCommands
 from enum import Enum
 import collections
 
@@ -17,4 +17,7 @@ def generate_buttons_response():
     for key in options.keys():
         markup.add(InlineKeyboardButton(options[key], callback_data= key))
     return markup
-  
+
+def get_menu_buttons():
+    return MenuButtonCommands
+    

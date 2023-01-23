@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
 
 def start_bot_server():
-    
+
     # start command
     @bot.message_handler(commands= ['start', 'help'])
     @bot.message_handler(content_types=['text'], func = lambda message: utils.user_states[message.from_user.id] ==\
@@ -55,3 +55,4 @@ def start_bot_server():
 
 if __name__ == "__main__":
     start_bot_server()
+    
