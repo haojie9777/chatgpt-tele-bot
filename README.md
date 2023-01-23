@@ -1,4 +1,8 @@
 # chatgpt-tele-bot [WIP]
+<p align = "center">
+<img src="https://user-images.githubusercontent.com/69890658/214094451-62369e35-9307-4585-b8aa-c6020e051a7b.png" width="250" height="250">
+</p>
+
 
 a telegram bot that allows you to access chatgpt directly without going through the website 
 
