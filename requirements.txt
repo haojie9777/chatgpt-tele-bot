@@ -1,0 +1,5 @@
+coloredlogs==15.0.1
+openai==0.26.1
+pyTelegramBotAPI==4.9.0
+python-dotenv==0.21.1
+ratelimit==2.2.1
