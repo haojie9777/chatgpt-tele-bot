@@ -4,7 +4,7 @@
 </p>
 
 
-a telegram bot that allows you to access chatgpt directly without going through the website 
+A telegram bot that allows you to access chatgpt directly without going through the website 
 
 # Set Up
 1. Switch to virtual environment
