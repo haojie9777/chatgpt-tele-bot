@@ -7,8 +7,9 @@ import prompts
 import utils.utils as utils
 from telebot.async_telebot import AsyncTeleBot
 
+
 # load telegram bot api key
-bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None, colorful_logs= True)
+bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None)
 
 # init logger
 logger = logging.getLogger(__name__)
@@ -42,6 +43,7 @@ def start_bot_server():
         # restore user state
         utils.user_states[message.from_user.id] = utils.UserState.MENU.value
         try:
+            await bot.send_chat_action(message.from_user.id, "typing")
             response = completion_service.get_completion(message.text)
             logger.info(f"original response text: {response}")
             # trimmed response if needed
