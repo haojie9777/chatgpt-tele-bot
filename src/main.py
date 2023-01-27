@@ -6,7 +6,10 @@ import config
 import prompts
 import utils.utils as utils
 from telebot.async_telebot import AsyncTeleBot
+from telebot import asyncio_helper
 
+# needed for deployment on pythonanywhere
+asyncio_helper.proxy = 'http://proxy.server:3128'
 
 # load telegram bot api key
 bot = AsyncTeleBot(config.config_dict["TELEGRAM_API_KEY"], parse_mode=None)
