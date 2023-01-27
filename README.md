@@ -19,7 +19,7 @@ A telegram bot that allows you to access chatgpt directly without going through 
 
 # Current Features
 1. Access OpenAI's text completion api through the bot.
-2. Deployed and available on telegram as @chatgpt_on_tele_bot
+2. Deployed and available on telegram [@chatgpt_on_tele_bot](https://t.me/chatgpt_on_tele_bot)
 
 # TODO
 1. Add more configuration
