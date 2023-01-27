@@ -13,7 +13,7 @@ A telegram bot that allows you to access chatgpt directly without going through 
 
 3. Add telegram api key as TELEGRAM_API_KEY and openai api key as OPEN_AI_KEY in a .env file in project root folder
 
-4. Customize parameters such as max_token length, model and temperature in config.py
+4. Customize parameters such as max token length, model and temperature in config.py
 
 5. `python main.py` to start the server
 
