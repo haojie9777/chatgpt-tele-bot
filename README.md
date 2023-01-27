@@ -1,10 +1,10 @@
-# chatgpt-tele-bot
+# gpt3-tele-bot
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/69890658/214094451-62369e35-9307-4585-b8aa-c6020e051a7b.png" width="250" height="250">
 </p>
 
 
-A telegram bot that allows you to access chatgpt directly without going through the website 
+A telegram bot that allows you to access gpt-3 directly without going through the website 
 
 # Set Up
 1. Create virtual environment
@@ -24,7 +24,7 @@ A telegram bot that allows you to access chatgpt directly without going through 
 # TODO
 1. Add more configuration
 2. Implement webhooks instead of constant polling
-3. Support chatgpt-3 and other OpenAI apis 
+3. Support chatgpt and other OpenAI apis 
 4. ~~Rate limiter~~, user session handling and caching
 
 # Credits
