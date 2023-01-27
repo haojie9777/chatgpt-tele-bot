@@ -1,10 +1,10 @@
-# gpt3-tele-bot
+# Oliver, a gpt-3 telegram bot
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/69890658/214094451-62369e35-9307-4585-b8aa-c6020e051a7b.png" width="250" height="250">
 </p>
 
 
-A telegram bot that allows you to access gpt-3 directly without going through the website 
+ Access gpt-3 directly without going through the website 
 
 # Set Up
 1. Create virtual environment
