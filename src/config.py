@@ -10,5 +10,5 @@ config_dict = {
     "LIMIT_CALLS": 5,
     "DEFAULT_MODEL": "text-davinci-003",
     "DEFAULT_TEMP": 0.3,
-    "DEFAULT_MAX_TOKENS": 30
+    "DEFAULT_MAX_TOKENS": 90
 }
