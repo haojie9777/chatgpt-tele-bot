@@ -27,9 +27,5 @@ A telegram bot that allows you to access chatgpt directly without going through 
 4. Support chatgpt-3 and other OpenAI apis 
 5. ~~Rate limiter~~, user session handling and caching
 
-# Special Note
-There must be thousands of chatgpt related projects out there created by other users ever since chatgpt was released.
-Nonetheless, this project serves as a practice and template for me to create more telegram bots in the future.
-
 # Credits
 Python Telegram wrapper by https://github.com/eternnoir/pyTelegramBotAPI
