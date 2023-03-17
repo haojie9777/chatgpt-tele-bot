@@ -1,7 +1,4 @@
 # Oliver, a gpt-3 telegram bot
-<p align = "center">
-<img src="https://user-images.githubusercontent.com/69890658/214094451-62369e35-9307-4585-b8aa-c6020e051a7b.png" width="250" height="250">
-</p>
 <br>
 <p align = "center">
 <img src="https://user-images.githubusercontent.com/69890658/217829460-dc283cc0-3a37-4466-bd98-11a8d0f7c3a3.PNG" width="450" height="350">
@@ -23,7 +20,6 @@
 
 # Current Features
 1. Access OpenAI's text completion api through the bot.
-2. Deployed and available on telegram [@chatgpt_on_tele_bot](https://t.me/chatgpt_on_tele_bot)
 
 # TODO
 1. Add more configuration
